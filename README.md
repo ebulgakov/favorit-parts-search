@@ -2,6 +2,8 @@
 
 Клиент для веб-сервиса «Проценка» Favorit-parts: поиск производителей по артикулу и подбор предложений и аналогов по выбранному бренду.
 
+Демо: https://favorit-parts-search.vercel.app/
+
 Стек: React 19, Redux Toolkit, Bootstrap 5, Vite, Vitest + Testing Library. Без TypeScript.
 
 ## Запуск
