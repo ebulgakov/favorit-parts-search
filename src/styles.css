@@ -1,0 +1,175 @@
+:root {
+  --app-accent: #1f4fd1;
+  --app-accent-soft: #eef2fd;
+  --app-surface: #ffffff;
+  --app-bg: #f4f6f9;
+  --app-border: #e1e5ec;
+  --bs-primary: var(--app-accent);
+  --bs-primary-rgb: 31, 79, 209;
+}
+
+body {
+  background: var(--app-bg);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--app-accent);
+  --bs-btn-border-color: var(--app-accent);
+  --bs-btn-hover-bg: #193fa8;
+  --bs-btn-hover-border-color: #193fa8;
+  --bs-btn-disabled-bg: var(--app-accent);
+  --bs-btn-disabled-border-color: var(--app-accent);
+}
+
+.app-header {
+  background: linear-gradient(120deg, #172c6b, var(--app-accent));
+  color: #fff;
+  padding: 1.75rem 0;
+}
+
+.panel {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+
+/* Производители */
+
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.brand-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: left;
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: 0.75rem;
+  padding: 0.875rem 1rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.brand-card:hover {
+  border-color: var(--app-accent);
+}
+
+.brand-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+.brand-card.is-active {
+  border-color: var(--app-accent);
+  background: var(--app-accent-soft);
+  box-shadow: inset 0 0 0 1px var(--app-accent);
+}
+
+.brand-card__brand {
+  font-weight: 600;
+}
+
+.brand-card__name {
+  font-size: 0.875rem;
+  color: var(--bs-secondary-color);
+}
+
+.brand-card__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  margin-top: auto;
+}
+
+/* Предложения */
+
+.offers {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.offers-table {
+  --bs-table-bg: transparent;
+}
+
+.offers-table thead th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--bs-secondary-color);
+  background: #fafbfc;
+}
+
+.offers-table th,
+.offers-table td {
+  padding: 0.75rem 1rem;
+}
+
+.offers-table__product {
+  width: 40%;
+  vertical-align: top;
+}
+
+.offers-table tbody + tbody {
+  border-top: 2px solid var(--app-border);
+}
+
+.offers-table tbody.is-empty {
+  opacity: 0.7;
+}
+
+/* На узком экране каждая деталь — карточка, строки складов — блоки с подписями */
+@media (max-width: 767.98px) {
+  .offers-table thead {
+    display: none;
+  }
+
+  .offers-table,
+  .offers-table tbody,
+  .offers-table tr,
+  .offers-table th,
+  .offers-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .offers-table tr + tr {
+    border-top: 1px dashed var(--app-border);
+  }
+
+  .offers-table th,
+  .offers-table td {
+    border: 0;
+    padding: 0.375rem 1rem;
+  }
+
+  .offers-table__product {
+    padding-top: 0.875rem !important;
+  }
+
+  .offers-table td {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    text-align: right !important;
+  }
+
+  .offers-table td::before {
+    content: attr(data-label);
+    color: var(--bs-secondary-color);
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  .offers-table tr:last-child td:last-child {
+    padding-bottom: 0.875rem;
+  }
+}
